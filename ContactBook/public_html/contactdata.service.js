@@ -1,26 +1,20 @@
-/* global angular */
-
 (function(){
     var app = angular.module('App');
-    app.service("ContactDataSvc",function (){   
-    this.contacts= [
-            {
-                "gender": "male",
-                "name": {"title": "monsieur", "first": "soan", "last": "brun"},
-                "location": {"street": "6999 rue des abbesses", "city": "assens", "state": "thurgau", "postcode": 7623},
-                "email": "soan.brun@example.com",
-                "login": {"username": "brownlion227", "password": "dumb", "salt": "9xQy2RLv", "md5": "0ee44ed23ca0dc8b5f93b0e16840fce8", "sha1": "c79ba321db35638fba773f26f79d306c85fe16a5", "sha256": "9a39c33edff283f306554df28d2a0fcaa14cea1ea9d7bb0e5dcad4575daca10a"}, "dob": "1995-01-22 14:48:09", "registered": "2014-06-12 22:14:55", "phone": "(181)-117-2274", "cell": "(748)-553-0119",
-                "id": {"name": "AVS", "value": "756.OACD.DHLR.26"},
-                "picture": {"large": "https://randomuser.me/api/portraits/men/51.jpg", "medium": "https://randomuser.me/api/portraits/med/men/51.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/men/51.jpg"}, "nat": "CH"},
-            {"gender": "male", "name": {"title": "mr", "first": "nathan", "last": "gray"}, "location": {"street": "7626 herbert road", "city": "maynooth", "state": "carlow", "postcode": 58563}, "email": "nathan.gray@example.com", "login": {"username": "organicmeercat620", "password": "apple1", "salt": "c7uraPpy", "md5": "a792f2e678ba683882b9e7ea336468d7", "sha1": "1ea2a09f5be983836b31b5faea2cc3af85aa55b4", "sha256": "cdfe2c17971a53935291d20bfc19d33eb387a1cd794243f0e61dd491a7603222"}, "dob": "1993-02-02 08:20:32", "registered": "2007-10-11 19:11:06", "phone": "051-914-5831", "cell": "081-962-0591", "id": {"name": "PPS", "value": "9988390T"}, "picture": {"large": "https://randomuser.me/api/portraits/men/49.jpg", "medium": "https://randomuser.me/api/portraits/med/men/49.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/men/49.jpg"}, "nat": "IE"},
-            {"gender": "male", "name": {"title": "monsieur", "first": "tim", "last": "louis"}, "location": {"street": "8854 esplanade du 9 novembre 1989", "city": "renens vd 2", "state": "appenzell innerrhoden", "postcode": 9831}, "email": "tim.louis@example.com", "login": {"username": "organicfish959", "password": "daemon", "salt": "6AURyXzj", "md5": "ea5972bde3052b51b6ec3006b385526f", "sha1": "035b4ea1a4201d0dc4290332f718d291acdb0f6a", "sha256": "1d912621525556ad53eb997ef07503dba124128fc87ceac2d4f0d4dd3ecd77e4"}, "dob": "1972-08-03 00:04:13", "registered": "2009-10-27 03:34:30", "phone": "(291)-195-1321", "cell": "(947)-420-3431", "id": {"name": "AVS", "value": "756.INDB.IDPA.33"}, "picture": {"large": "https://randomuser.me/api/portraits/men/43.jpg", "medium": "https://randomuser.me/api/portraits/med/men/43.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/men/43.jpg"}, "nat": "CH"},
-            {"gender": "male", "name": {"title": "mr", "first": "كيان", "last": "كامياران"}, "location": {"street": "2223 ایران", "city": "خوی", "state": "چهارمحال و بختیاری", "postcode": 83170}, "email": "كيان.كامياران@example.com", "login": {"username": "whitedog165", "password": "camila", "salt": "ikvBG1B1", "md5": "0a0acbf0acf8a0dcfd9c9f62310141c2", "sha1": "d4b4330a5d5f90390ff1b431fcf8a20aa04daf1b", "sha256": "6f3c8df1455e4e1988ab2b16dfad857708e60472822d0befe5f42097fff0a881"}, "dob": "1990-01-22 18:47:33", "registered": "2006-11-13 03:17:27", "phone": "042-26359074", "cell": "0974-956-5495", "id": {"name": "", "value": null}, "picture": {"large": "https://randomuser.me/api/portraits/men/95.jpg", "medium": "https://randomuser.me/api/portraits/med/men/95.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/men/95.jpg"}, "nat": "IR"},
-            {"gender": "female", "name": {"title": "miss", "first": "darlene", "last": "gilbert"}, "location": {"street": "9940 mockingbird ln", "city": "tulsa", "state": "south dakota", "postcode": 14037}, "email": "darlene.gilbert@example.com", "login": {"username": "lazydog980", "password": "wwwwww", "salt": "w4zn2ZPY", "md5": "c44c78559f2842221c0809ea09d507f1", "sha1": "185bf15db01688cf3c271fa8f4c0d70a998d329e", "sha256": "8c5ea9b5f9b34b51caa0234f061043e378889fc440836de70cb4d7abbeca2042"}, "dob": "1965-01-28 15:11:04", "registered": "2011-05-13 12:04:29", "phone": "(222)-489-8496", "cell": "(191)-474-1258", "id": {"name": "SSN", "value": "607-02-0196"}, "picture": {"large": "https://randomuser.me/api/portraits/women/14.jpg", "medium": "https://randomuser.me/api/portraits/med/women/14.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/women/14.jpg"}, "nat": "US"},
-            {"gender": "male", "name": {"title": "mr", "first": "henning", "last": "schlüter"}, "location": {"street": "4092 drosselweg", "city": "mettmann", "state": "baden-württemberg", "postcode": 31601}, "email": "henning.schlüter@example.com", "login": {"username": "orangebird651", "password": "prosper", "salt": "2yOvJ3SZ", "md5": "78cba872a75281ffd08434e37456605c", "sha1": "024dc81ef00bfd36e934591636f0837c7d0d0730", "sha256": "4904844b326caa26892f148643b0c2884050e0bfe631aa0349b2e30977cdc210"}, "dob": "1950-11-25 08:15:58", "registered": "2013-06-25 09:44:49", "phone": "0929-0364107", "cell": "0175-6611632", "id": {"name": "", "value": null}, "picture": {"large": "https://randomuser.me/api/portraits/men/80.jpg", "medium": "https://randomuser.me/api/portraits/med/men/80.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/men/80.jpg"}, "nat": "DE"},
-            {"gender": "female", "name": {"title": "miss", "first": "nurdan", "last": "öztürk"}, "location": {"street": "5689 necatibey cd", "city": "muğla", "state": "aydın", "postcode": 76613}, "email": "nurdan.öztürk@example.com", "login": {"username": "bigcat504", "password": "havana", "salt": "OCoN5cCR", "md5": "8fdfb2ecc669d113cb167201adfeb252", "sha1": "40542f49d32e572cf5938692b1c826b6cef9a13e", "sha256": "09f5f352766dc84f9a61eafdcc9d387f43b747f24dce7fddea0b597d95b6fda5"}, "dob": "1993-11-10 15:02:38", "registered": "2009-02-08 18:03:56", "phone": "(387)-348-7574", "cell": "(036)-945-0646", "id": {"name": "", "value": null}, "picture": {"large": "https://randomuser.me/api/portraits/women/38.jpg", "medium": "https://randomuser.me/api/portraits/med/women/38.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/women/38.jpg"}, "nat": "TR"},
-            {"gender": "female", "name": {"title": "mademoiselle", "first": "eloane", "last": "lefebvre"}, "location": {"street": "4011 rue louis-blanqui", "city": "cugy vd", "state": "solothurn", "postcode": 8230}, "email": "eloane.lefebvre@example.com", "login": {"username": "blackleopard606", "password": "lucky1", "salt": "zi9p3m4C", "md5": "d53a7329a6c6fe995dd62e9cc27f393c", "sha1": "34bbb16f5ab582d03a4a54db3137bf6da5dce778", "sha256": "beb9296be53a28ca877380bc78c6102312ce5a9ca9211ea193a1579684d6a58a"}, "dob": "1965-06-14 16:55:31", "registered": "2015-05-17 01:13:58", "phone": "(363)-796-6001", "cell": "(958)-158-2496", "id": {"name": "AVS", "value": "756.YQTG.YPSO.08"}, "picture": {"large": "https://randomuser.me/api/portraits/women/24.jpg", "medium": "https://randomuser.me/api/portraits/med/women/24.jpg", "thumbnail": "https://randomuser.me/api/portraits/thumb/women/24.jpg"}, "nat": "CH"}
-        ];
-
+    app.service("ContactDataSvc",function ($http){   
+    var self=this;
+    self.getContacts=function(){
+    var promise1=$http.get('http://localhost:3000/contacts');
+    var promise2=promise1.then(function(response)
+        {
+             return response.data;
+        });
+    return promise2;        
+        }
+    self.saveUser=function(userData){
+        $http.put('http://localhost:3000/contacts/'+userData.id, userData)
+                .then(function(response){
+                    console.log(response);
+        })
+    }    
 });
 })();
-
